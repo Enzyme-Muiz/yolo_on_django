@@ -1,0 +1,61 @@
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+  {% include "main/includes/navbar.html" %}
+
+  <div class="container">
+    <br>
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+
+  <script>
+    function captureVideo() {
+      //var canvas = document.createElement("canvas");
+      var canvas = document.getElementById("canvas");
+      var video = document.getElementById("video1");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      var canvasContext = canvas.getContext("2d");
+      canvasContext.drawImage(video, 0, 0);
+      //var dataURL = canvas.toDataURL('image/png', 1.0);
+      var dataURL = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+      console.log(dataURL);
+      downloadImage(dataURL, 'my-canvas.png');
+      //window.location.href=dataURL;
+    }
+
+    function downloadImage(data, filename = 'untitled.png') {
+      var a = document.createElement('a');
+      a.href = data;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+    }
+    var myVideo = document.getElementById("video1");
+
+    function playPause() {
+      if (myVideo.paused)
+        myVideo.play();
+      else
+        myVideo.pause();
+        captureVideo()
+        var canvas = document.getElementById("canvas");
+        //document.getElementById('my_hidden').value = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+        //document.getElementById("form1").submit()
+        //console.log("iso");
+    }
+  </script>
+
+</body>

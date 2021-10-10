@@ -1,0 +1,27 @@
+{% extends "main/header.html" %}
+
+
+{% block content%}
+
+<div class= "row" align= "center">
+	
+	
+    <form method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %} 
+        {{form.as_p}}
+        <button type="submit">Upload</button> 
+    </form> 
+    
+    <video id="video1" width="530" height="400" >
+        <source src="media/videos/WIN_20210501_15_56_25_Pro.mp4" type="video/mp4"> </source>
+    </video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <form action="" method="post" id="form1"> 
+        {% csrf_token %}
+        {{form1.as_p}} 
+        <input type="hidden" name="canvasData" id="my_hidden">  
+    </form> 
+    <button onclick="playPause()">Play/Pause</button> 
+    <a class="btn btn-primary" href="/detect_object" role="button">Detect</a>
+</div>
+{% endblock content %}

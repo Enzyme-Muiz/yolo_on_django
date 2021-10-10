@@ -1,0 +1,88 @@
+{% extends "main/header.html" %}
+
+{% block content%}
+
+
+
+<p>You have logged in {{number}}  times</p>
+<div class="row">
+<div class="col l4 m6 s12">
+<div class="card small card-panel hoverable teal lighten-2 center-align"> 
+<div class="c100 p{{class_mub}}">
+  <span>{{numberi}}</span>
+  <div class="slice">
+    <div class="bar"></div>
+    <div class="fill"></div>
+  </div>
+</div>
+<h3>Mubaarak</h3>
+</div>
+</div>
+<div class="col l4 m6 s12">
+<div class="card small card-panel hoverable teal lighten-2 center-align"> 
+<div class="c100 p{{class_nab}}">
+  <span>{{numberii}}</span>
+  <div class="slice">
+    <div class="bar"></div>
+    <div class="fill"></div>
+  </div>
+</div>
+<h2>Nabeel</h2>
+</div>
+</div>
+<div class="col l4 m6 s12">
+<div class="card small card-panel hoverable teal lighten-2 center-align"> 
+<div class="c100 p{{class_abs}}">
+  <span>{{numberiii}}</span>
+  <div class="slice">
+    <div class="bar"></div>
+    <div class="fill"></div>
+  </div>
+</div>
+<h2>Abdul-Mujeeb</h2>
+</div>
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col l6 m6 s6  offset-s3 offset-l3 offset-m3">
+
+<div class="responsive-img carousel carousel-slider">
+	
+{% for product in products %}
+     
+    <div class="carousel-item  img-holder" href="/{{forloop.counter}}">
+    <img src="{{product.Img.url}}">
+    <a class="link" href="/delete/{{product.id}}">button</a>
+    </div >
+
+
+   
+
+    
+
+{% endfor %}  
+  
+<a class="waves-effect waves-light btn" href="/test_api_consumption">button</a>
+    
+</div>
+
+
+
+        
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
