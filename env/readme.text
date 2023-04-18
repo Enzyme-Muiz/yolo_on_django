@@ -1,0 +1,2 @@
+please ensure a redis-server is running before 
+python manage.py runserver
